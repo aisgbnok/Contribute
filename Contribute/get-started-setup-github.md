@@ -1,5 +1,5 @@
 ---
-title: GitHub account setup
+title: Set up a GitHub account
 description: This article helps you set up a GitHub account which is required to contribute to Microsoft Docs.
 ms.topic: contributor-guide
 ms.prod: non-product-specific
@@ -7,7 +7,7 @@ ms.custom: external-contributor-guide
 ms.date: 06/01/2022
 ---
 
-# GitHub account setup
+# Set up a GitHub account
 
 To contribute to Microsoft Docs technical content, you need to set up your own GitHub account. The good news is, you usually only have to perform these steps once.
 

@@ -16,11 +16,11 @@ This article describes the steps to set up a Git repository on your local device
 Follow these one-time setup activities to start contributing:
 
 > [!div class="checklist"]
-> * Determine the Microsoft repository
-> * Fork the Microsoft repository to your GitHub account
+> * Determine the appropriate repository
+> * Fork the original repository to your GitHub account
 > * Choose a location on your device to clone your fork
 > * Clone your fork to your local device
-> * Configure the Microsoft repository as the remote upstream
+> * Configure the original repository as the remote upstream
 
 > [!IMPORTANT]
 > If you're making only minor changes to an article, you *do not* need to complete the steps in this article. You can continue directly to the [quick changes workflow](index.md#quick-edits-to-documentation).
@@ -47,11 +47,11 @@ Before you start, here are a few important terms and Git actions that will be us
 
 Along with the terminology outlined above, it might be helpful to reference the [Git and GitHub fundamentals](./git-github-fundamentals.md) along with the terminology section of the [GitHub contribution workflow](./how-to-write-workflows-major.md#terminology). Don't stress over knowing all of the terminologies right away; instead, use the above table as a reference, as needed, when going through this guide.
 
-## Determine the Microsoft repository
+## Determine the appropriate repository
 
-To start you need to determine what Microsoft repository you want to edit. Documentation hosted at [docs.microsoft.com](https://docs.microsoft.com) resides in several different repositories on [GitHub](https://github.com). It may not be immediately clear which Microsoft repository is used for maintaining an article. Furthermore, it may not be clear where an article is stored in a repository.
+To start you need to determine what repository you want to edit. Documentation hosted at [docs.microsoft.com](https://docs.microsoft.com) resides in several different repositories on [GitHub](https://github.com). It may not be immediately clear which repository is used for maintaining an article. Furthermore, it may not be clear where an article is stored in a repository.
 
-1. To determine which Microsoft repository contains the article you want to edit, visit the article on [docs.microsoft.com](https://docs.microsoft.com).
+1. To determine which repository contains the article you want to edit, visit the article on [docs.microsoft.com](https://docs.microsoft.com).
 
     > [!NOTE]
     > If you're a Microsoft employee or vendor, before you edit the article, append `review.` to the beginning of the URL. This action lets you use the private repository. For more information, see the [internal contributor guide](https://review.docs.microsoft.com/help/get-started/edit-article-in-github?branch=main).
@@ -77,13 +77,13 @@ To start you need to determine what Microsoft repository you want to edit. Docum
    * Azure .NET SDK Documentation [https://github.com/azure/azure-docs-sdk-dotnet](https://github.com/azure/azure-docs-sdk-dotnet)
    * Microsoft Endpoint Configuration Manager Documentation [https://github.com/MicrosoftDocs/memdocs](https://github.com/MicrosoftDocs/memdocs)
 
-## Fork the Microsoft repository to your GitHub account
+## Fork the original repository to your GitHub account
 
-After determining the Microsoft repository, use the GitHub website to create a fork of the Microsoft repository. The newly created fork will be held in your GitHub account and changes are isolated from the Microsoft repository.
+After determining the appropriate repository, use the GitHub website to create a fork of the repository. The newly created fork will be held in your GitHub account and changes are isolated from the original repository.
 
-A fork is required since all documentation repositories provide read-only access. To propose changes, you must submit a [pull request](git-github-fundamentals.md#pull-requests) from your fork into the Microsoft repository. To facilitate this process, you first need your own copy of the repository, in which you have write access. A GitHub *fork* serves that purpose.
+A fork is required since all documentation repositories provide read-only access. To propose changes, you must submit a [pull request](git-github-fundamentals.md#pull-requests) from your fork into the original repository. To facilitate this process, you first need your own copy of the repository, in which you have write access. A GitHub *fork* serves that purpose.
 
-1. Go to the Microsoft repository's GitHub page and select the **Fork** button at the upper right.
+1. Go to the original repository's GitHub page and select the **Fork** button at the upper right.
 
    :::image type="content" source="media/contribute-get-started-setup-local/fork-location.png" alt-text="Select Fork at the upper right of the repository on GitHub.":::
 
@@ -91,13 +91,13 @@ A fork is required since all documentation repositories provide read-only access
 
    :::image type="content" source="media/contribute-get-started-setup-local/create-fork.png" alt-text="Create a new fork page.":::
 
-   A copy of the Microsoft repository will be created within the account you selected, this will be your fork.
+   A copy of the original repository will be created within the account you selected, this will be your fork.
 
 ## Choose a location on your device to clone your fork
 
-Now that you have created a fork of the Microsoft repository, you must clone your fork locally. Some of the documentation repositories can be large; for example, `azure-docs` is up to 25 GB. Make sure to choose a location with available disk space for cloning the forked repository.
+Now that you have created a fork of the original repository, you must clone your fork locally. Some of the documentation repositories can be large; for example, `azure-docs` is up to 25 GB. Make sure to choose a location with available disk space for cloning the forked repository.
 
-When cloning a repository, Git will automatically create a new directory, with the forked repository's name,  within your current directory. If you are working on multiple documentation repositories it might be helpful to store them together. For example, you might want to clone the `azure-docs`, `sql-docs`, and `visualstudio-docs` using a directory path such as `C:/Users/<Username>/Documents/Docs/<Repo-Name>`. With each repository being stored separately in its own directory (`<Repo-Name>`), but together under the same parent directory (`Docs`).
+When cloning a repository, Git will automatically create a new directory, with the forked repository's name, within your current directory. If you are working on multiple documentation repositories it might be helpful to store them together. For example, you might want to clone the `azure-docs`, `sql-docs`, and `visualstudio-docs` using a directory path such as `/home/<Username>/Docs/<Repo-Name>` or `/c/Users/<Username>/Docs/<Repo-Name>` on Windows. With each repository being stored separately in its own directory (`<Repo-Name>`), but together under the same parent directory (`Docs`).
 
 > [!TIP]
 > [Windows Terminal](/windows/terminal/) with [PowerShell](/powershell/) supports a nearly identical command experience to that of Git Bash. You can even run Git Bash inside Windows Terminal.
@@ -113,16 +113,16 @@ When cloning a repository, Git will automatically create a new directory, with t
    > [!IMPORTANT]
    > Avoid choosing a local directory path that is nested inside of another Git repository. While it is acceptable to store the cloned repositories adjacent to each other, nesting repositories inside one another causes errors for the Git file tracking.
 
-   Consider a root directory:
-
-   ```bash
-   cd C:/
-   ```
-
    Consider a directory in your user profile directory:
 
    ```bash
-   cd ~/Documents
+   cd ~
+   ```
+
+   Consider a root directory:
+
+   ```bash
+   cd /
    ```
 
 3. Make a new directory (`mkdir`) for storing all of your cloned repositories. Choose a parent directory name that is easy for you to remember and type.
@@ -137,7 +137,7 @@ When cloning a repository, Git will automatically create a new directory, with t
    cd Docs/
    ```
 
-   This will be the parent directory where you clone and store all of your documentation repositories. In total the path (`pwd`) will be something like: `/c/Users/<Username>/Documents/Docs`.
+   This will be the parent directory where you clone and store all of your documentation repositories. In total the path (`pwd`) will be something like: `/home/<Username>/Docs` or `/c/Users/<Username>/Docs` on Windows.
 
 ## Clone your fork to your local device
 
@@ -150,7 +150,7 @@ To clone your fork, run the **clone** command which downloads a copy of your for
    >
    > :::image type="content" source="media/contribute-get-started-setup-local/github-code-button.svg" alt-text="The GitHub Code button that provides a URL for cloning." border="false":::
 
-   Be sure to specify the URL to your fork during the cloning process, not the Microsoft repository from which you created the fork. Otherwise, you cannot contribute changes.
+   Be sure to specify the URL to your fork during the cloning process, not the original repository from which you created the fork. Otherwise, you cannot contribute changes.
 
    ```bash
    git clone https://github.com/<Username>/<Repo-Name>.git
@@ -162,9 +162,9 @@ To clone your fork, run the **clone** command which downloads a copy of your for
    cd <Repo-Name>/
    ```
 
-## Configure the Microsoft repository as the remote upstream
+## Configure the original repository as the remote upstream
 
-If you are working on more substantial changes that span a larger period of time, you might want to keep your fork up-to-date with the Microsoft repository's changes. To do this set up a read-only remote connection to the Microsoft repository, sometimes referred to as the **upstream** repository. You use the upstream repository to keep your locally cloned repository up-to-date with the latest changes from the upstream repository. The **remote** command is used to set the upstream repository. While the **fetch** command pulls changes from the upstream repository into the cloned repository.
+If you are working on more substantial changes that span a larger period of time, you might want to keep your fork up-to-date with the original repository's changes. To do this set up a read-only remote connection to the original repository, sometimes referred to as the **upstream** repository. You use the upstream repository to keep your locally cloned repository up-to-date with the latest changes from the upstream repository. The **remote** command is used to set the upstream repository. While the **fetch** command pulls changes from the upstream repository into the cloned repository.
 
 1. Make sure your current working directory is the cloned repository. For example, running the `pwd` command should output:
 
@@ -174,10 +174,10 @@ If you are working on more substantial changes that span a larger period of time
 
    If your current working directory is not the cloned repository, change directory (`cd`) to it. You can also test if you are in a repository by running `git status`.
 
-2. Add the Microsoft repository as an upstream repository.
+2. Add the original repository as an upstream repository.
 
    ```bash
-   git remote add upstream https://github.com/MicrosoftDocs/<Repo-Name>.git
+   git remote add upstream https://github.com/<Organization>/<Repo-Name>.git
    ```
 
 3. Validate that the remote URLs are correct.
@@ -186,7 +186,7 @@ If you are working on more substantial changes that span a larger period of time
    git remote -v
    ```
 
-   The **origin** URL entires should be your fork URL, while the **upstream** URL entires should be the Microsoft repository URL.
+   The **origin** URL entires should be your fork URL, while the **upstream** URL entires should be the original repository URL.
 
    ```output
    origin  https://github.com/<Username>/<Repo-Name>.git (fetch)
@@ -195,7 +195,7 @@ If you are working on more substantial changes that span a larger period of time
    upstream        https://github.com/MicrosoftDocs/<Repo-Name>.git (push)
    ```
 
-   `<Username>` will be your GitHub username, or the GitHub account/organization you chose when forking the Microsoft repository. `<Repo-Name>` will be the respective fork and Microsoft repository name. The Microsoft repository name and your fork repository name may be different depending on your choices when forking.
+   `<Username>` will be your GitHub username, or the GitHub account/organization you chose when forking the original repository. `<Repo-Name>` will be the respective fork and original repository name. The original repository name and your fork repository name may be different depending on your choices when forking.
 
 4. If you made a mistake, you can remove the remote upstream value.
 
